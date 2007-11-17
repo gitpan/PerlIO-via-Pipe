@@ -1,0 +1,11 @@
+---
+global:
+  name: PerlIO-via-Pipe
+releases:
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - original version
+      - some changes to make Perl::Critic happy
+    date: 2007-11-17T16:23:56Z
+    tags: []
+    version: 0.01
