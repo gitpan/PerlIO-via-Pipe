@@ -4,6 +4,14 @@ global:
 releases:
   - author: 'Marcel Gruenauer <marcel@cpan.org>'
     changes:
+      - set the version to 0.02
+      - updated t/perlcriticrc
+      - "t/01_misc.t: Text::Pipe doesn't export pipe() anymore, it's called PIPE() now"
+    date: 2008-02-29T14:31:20Z
+    tags: []
+    version: 0.02
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
       - original version
       - some changes to make Perl::Critic happy
     date: 2007-11-17T16:23:56Z

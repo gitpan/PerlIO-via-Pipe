@@ -5,7 +5,7 @@ use warnings;
 require 5.008;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base 'Exporter';
@@ -77,7 +77,7 @@ please use the C<perlioviapipe> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.01 of L<PerlIO::via::Pipe>.
+This document describes version 0.02 of L<PerlIO::via::Pipe>.
 
 =head1 BUGS AND LIMITATIONS
 
@@ -103,7 +103,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007 by Marcel GrE<uuml>nauer
+Copyright 2007-2008 by Marcel GrE<uuml>nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

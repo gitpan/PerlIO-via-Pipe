@@ -3,11 +3,12 @@ package Module::Install::Template;
 
 use strict;
 use warnings;
+use Cwd;
 use File::Temp 'tempfile';
 use Data::Dumper;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(Module::Install::Base);
@@ -70,6 +71,7 @@ sub process_templates {
             year     => $self->year_str($args{first_year}),
             tag      => $self->tag,
             rt_email => $self->rt_email,
+            base_dir => getcwd(),
             (@other_authors ? (other_authors => \@other_authors) : ()),
         },
     };
@@ -167,5 +169,5 @@ EOPOSTAMBLE
 
 __END__
 
-#line 259
+#line 261
 

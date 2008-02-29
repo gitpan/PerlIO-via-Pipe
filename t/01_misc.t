@@ -3,10 +3,10 @@
 use warnings;
 use strict;
 use PerlIO::via::Pipe 'set_io_pipe';
-use Text::Pipe 'pipe';
+use Text::Pipe 'PIPE';
 use Test::More tests => 1;
 
-my $pipe = pipe('Trim') | pipe('Uppercase') | pipe('Repeat', times => 2);
+my $pipe = PIPE('Trim') | PIPE('Uppercase') | PIPE('Repeat', times => 2);
 set_io_pipe $pipe;
 
 open my $fh, '<:via(Pipe)', $0 or die "can't open $0: $!\n";
