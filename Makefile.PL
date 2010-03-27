@@ -1,23 +1,45 @@
-use inc::Module::Install;
-include 'Module::AutoInstall';
 
-name 'PerlIO-via-Pipe';
-all_from 'lib/PerlIO/via/Pipe.pm';
-perl_version '5.008';
+use strict;
+use warnings;
 
-requires 'PerlIO::via';
-requires 'Text::Pipe';
+ BEGIN { require 5.008; } 
 
-build_requires 'Test::More' => '0.70';
+use ExtUtils::MakeMaker 6.11;
 
-process_templates(
-    first_year => 2007,
-    rest_from  => "$ENV{HOME}/.mitlib/standard_pod",
-    start_tag  => '{%',
-    end_tag    => '%}',
-);
 
-use_standard_tests(without => 'pod_coverage');
-auto_install;
-auto_include;
-WriteAll;
+
+my %WriteMakefileArgs = (
+                       'test' => {
+                                   'TESTS' => 't/*.t'
+                                 },
+                       'NAME' => 'PerlIO::via::Pipe',
+                       'DISTNAME' => 'PerlIO-via-Pipe',
+                       'CONFIGURE_REQUIRES' => {
+                                                 'ExtUtils::MakeMaker' => '6.11'
+                                               },
+                       'AUTHOR' => 'Marcel Gruenauer <marcel@cpan.org>',
+                       'BUILD_REQUIRES' => {},
+                       'ABSTRACT' => 'PerlIO layer to filter input through a Text::Pipe',
+                       'EXE_FILES' => [],
+                       'VERSION' => '1.100860',
+                       'PREREQ_PM' => {
+                                        'Scalar::Util' => '0',
+                                        'English' => '0',
+                                        'Exporter' => '0',
+                                        'Carp' => '0',
+                                        'Test::More' => '0.88',
+                                        'File::Find' => '0',
+                                        'Text::Pipe' => '0',
+                                        'File::Temp' => '0'
+                                      },
+                       'LICENSE' => 'perl'
+                     );
+
+
+delete $WriteMakefileArgs{LICENSE}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+

@@ -1,27 +1,61 @@
-This is the Perl distribution PerlIO-via-Pipe.
+NAME
+    PerlIO::via::Pipe - PerlIO layer to filter input through a Text::Pipe
+
+VERSION
+    version 1.100860
+
+SYNOPSIS
+        use PerlIO::via::Pipe 'set_io_pipe';
+        use Text::Pipe 'PIPE';
+
+        my $pipe = PIPE('...') | PIPE('...');
+
+        open my $file, '<:via(Pipe)', 'foo.txt'
+            or die "can't open foo.txt $!\n";
+
+DESCRIPTION
+    This package implements a PerlIO layer for reading files only. It
+    exports, on request, a function "set_io_pipe" that you can use to set a
+    Text::Pipe pipe. If you then use the "Pipe" layer as shown in the
+    synopsis, the input gets filtered through the pipe.
+
+FUNCTIONS
+  FILL
+    FIXME
+
+  PUSHED
+    FIXME
+
+  set_io_pipe
+    FIXME
 
 INSTALLATION
+    See perlmodinstall for information and options on installing Perl
+    modules.
 
-PerlIO-via-Pipe installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+BUGS AND LIMITATIONS
+    No bugs have been reported.
 
-    % cpan PerlIO::via::Pipe
+    Please report any bugs or feature requests through the web interface at
+    <http://rt.cpan.org/Public/Dist/Display.html?Name=PerlIO-via-Pipe>.
 
-Download it, unpack it, then build it as per the usual:
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you, or see
+    <http://search.cpan.org/dist/PerlIO-via-Pipe/>.
 
-    % perl Makefile.PL
-    % make && make test
+    The development version lives at
+    <http://github.com/hanekomu/PerlIO-via-Pipe/>. Instead of sending
+    patches, please fork this project using the standard git and github
+    infrastructure.
 
-Then install it:
+AUTHOR
+      Marcel Gruenauer <marcel@cpan.org>
 
-    % make install
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2007 by Marcel Gruenauer.
 
-DOCUMENTATION
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 
-PerlIO-via-Pipe documentation is available as in POD. So you can do:
-
-    % perldoc PerlIO::via::Pipe
-
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
